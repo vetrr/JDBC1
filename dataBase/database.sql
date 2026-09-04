@@ -1,18 +1,16 @@
 CREATE TABLE department (
-  Id int(11) NOT NULL AUTO_INCREMENT,
-  Name varchar(60) DEFAULT NULL,
-  PRIMARY KEY (Id)
+  Id SERIAL PRIMARY KEY,
+  Name varchar(60) DEFAULT NULL
 );
 
 CREATE TABLE seller (
-  Id int(11) NOT NULL AUTO_INCREMENT,
+  Id SERIAL PRIMARY KEY,
   Name varchar(60) NOT NULL,
   Email varchar(100) NOT NULL,
-  BirthDate datetime NOT NULL,
-  BaseSalary double NOT NULL,
-  DepartmentId int(11) NOT NULL,
-  PRIMARY KEY (Id),
-  FOREIGN KEY (DepartmentId) REFERENCES department (id)
+  BirthDate TIMESTAMP NOT NULL,
+  BaseSalary NUMERIC(11,2) NOT NULL,
+  DepartmentId INT NOT NULL,
+  FOREIGN KEY (DepartmentId) REFERENCES department (Id)
 );
 
 INSERT INTO department (Name) VALUES 
